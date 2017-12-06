@@ -1,10 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Рамка определенного цвета на соответствующие элементы</title>
 </head>
 <body>
-	
+
+    <p>Lorem, ipsum dolor sit amet consectetur <a href="#">link 1</a> adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa deserunt soluta nostrum. Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, <a href="#">link 2</a> voluptates cumque maiores cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa deserunt soluta nostrum. Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, voluptates cumque maiores cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa deserunt soluta nostrum. <a href="#">link 3</a> Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, voluptates cumque maiores cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa deserunt soluta nostrum. Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, voluptates cumque maiores cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+
+    <div id="test_div">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, error!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, error!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, error!</p>
+    </div>
+
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa deserunt soluta nostrum. Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, voluptates cumque maiores <a href="#">link 4</a> cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet dolorem facere debitis, provident voluptate reprehenderit in deleniti dolor explicabo officia aliquam, possimus adipisci unde similique facilis ducimus non quae ex. Perferendis temporibus animi magnam eius ipsam officia, debitis, excepturi unde tenetur dicta perspiciatis odio explicabo quod consequuntur, sapiente culpa <a href="#">link 5</a> deserunt soluta nostrum. Ea esse eius, magnam quisquam earum magni iure repellendus temporibus sunt laboriosam placeat aliquid autem repudiandae rem, voluptates cumque maiores cupiditate enim harum alias nostrum, labore officiis. Eius quod saepe beatae animi fugit aut explicabo, quo est. Exercitationem explicabo repellendus nihil dicta molestiae odio laboriosam magnam asperiores repellat?</p>
+
+    <form action="#">
+        <input type="button" value="выбрать все параграфы" onclick="selectP();">
+        <input type="button" value="выбрать все ссылки" onclick="selectLinks();">
+        <input type="button" value="выбрать DIV" onclick="selectDiv();">
+    </form>
+
+<script>
+// Создайте страницу, разместите на странице в произвольном порядке 
+// несколько параграфов, ссылок и элемент Div c id=test_div. 
+// Разместите на странице три кнопки – 
+//     «выбрать все параграфы», 
+//     «выбрать все ссылки», 
+//     «выбрать DIV». 
+// При нажатии на каждую кнопку должна запускаться функция обработчик, 
+// которая добавит рамку определенного цвета на соответствующие элементы.
+
+    function removeSelection() {
+        var el = document.querySelectorAll("*");
+        // var el = document.body.childNodes;
+        for(var i=0; i < el.length; i++) {
+            el[i].setAttribute("style", "border: none");
+        }
+    }
+
+    function selectDiv() {
+        removeSelection();
+        var res = document.getElementById("test_div");
+        res.setAttribute("style", "border: 1px solid red");
+    }
+
+    function selectP() {
+        removeSelection();
+        var el = document.getElementsByTagName("p");
+        for(var i=0; i < el.length; i++) {
+            el[i].style.border = "1px solid green";
+        }
+    }
+
+    function selectLinks() {
+        removeSelection();
+        var el = document.links;
+        for(var i=0; i < el.length; i++) {
+            el[i].setAttribute("style", "border: 1px solid red");
+        }
+    }
+
+</script>
+
+
 </body>
 </html>
