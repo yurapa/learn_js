@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Создайте функцию-конструктор Box (коробка)</title>
+</head>
+<body>
+
+<script>
+// Создайте функцию-конструктор Box (коробка) для создания объекта со свойствами 
+// Height (высота), Width (ширина), Depth (глубина) и Material (материал). 
+// Также, в объекте должны быть методы Volume – для получения объема и equals() – 
+// для сравнения объектов, объекты должны считаться равными, если содержат 
+// одинаковые значения в свойстве Material.
+// + Задание 4 
+// Создайте пример демонстрирующий назначение метода toString(). 
+
+
+    var box_1,
+        box_2,
+        box_3,
+        isEqual_two_box;
+
+    function Box(height, width, depth, material) {
+        this.height = height;
+        this.width = width;
+        this.depth = depth;
+        this.material = material;
+
+        this.volume = function() {
+            return this.height * this.width * this.depth;
+        }
+
+        this.toString = function() {
+            console.log('Высота = ' + this.height + 
+                        ', ширина = ' + this.width + 
+                        ', глубина = ' + this.depth + 
+                        '. Материал коробки - ' + this.material + 
+                        '. Объем = ' + this.volume() + '.');
+        }
+    }
+
+    Box.prototype.equals = function (otherObj) {
+        // if (this.material === otherObj.material) {
+        //     return true;
+        // }
+        // return false;
+
+        return (this.material === otherObj.material) ? true : false;
+    }
+
+
+    box_1 = new Box(10, 20, 40, 'wood'),
+    box_2 = new Box(70, 80, 60, 'wood');
+    box_3 = new Box(50, 50, 400, 'plastic');
+
+    console.log( box_1 );
+    box_1.toString();
+
+    console.log(box_2);
+    box_2.toString();
+
+    console.log(box_3);
+    box_3.toString();
+
+    console.log('Обьем коробки №1 = ' + box_1.volume());
+    console.log('Обьем коробки №2 = ' + box_2.volume());
+    console.log('Обьем коробки №3 = ' + box_3.volume());
+
+    isEqual_two_box = box_1.equals(box_2);
+    console.log(isEqual_two_box);
+
+    isEqual_two_box = box_1.equals(box_3);
+    console.log(isEqual_two_box);
+
+</script>
+
+</body>
+</html>

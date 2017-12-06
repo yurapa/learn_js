@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+// Задание 1
+// Создайте функцию конструктор, которая создает 
+//     объект со свойством экземпляра, 
+//     свойством функции-конструктора, 
+//     с методом экземпляра и методом функции-конструктора.
+// Имена выберите произвольно
+
+
+    function Student(name) {
+        this.name = name || "Имя";
+    }
+
+    // static props, only for Student
+    Student.age = 16;
+
+    // static method, only for Student
+    Student.getAge = function() {
+        return "You are: "+ Student.age + " years.";
+    }
+
+    // Class's method
+    Student.prototype.hello = function (){
+        document.write("Привет, " + this.name + ".<br/>");
+    }
+
+    var student_1 = new Student('Василий');
+    var student_2 = new Student();
+
+    console.log(student_1);
+    console.log(student_1.hello());
+    console.log(student_2);
+    console.log(student_2.hello());
+
+    console.log(Student.getAge());
+
+</script>
+
+</body>
+</html>
