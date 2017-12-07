@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>секундомер</title>
+</head>
+<body>
+
+    <div id="timer">00:00:00</div>
+    <input type="button" id="timer-start" value="Start">
+    <input type="button" id="timer-stop" onClick="Timer.stop" value="Stop">
+    <input type="button" id="timer-reset" onClick="Timer.reset" value="Reset">
+
+<script>
+// Задание 1 
+// Разработайте программу секундомер. 
+// Секундомер должен иметь три кнопки «Старт», «Стоп», «Сбросить». 
+// Секундомер должен выводить время в формате 00:00:00. 
+
+    window.onload = function() {
+        var el = document.getElementById('timer');
+
+        document.getElementById('timer-start').addEventListener("click" , starting);
+        document.getElementById('timer-stop').addEventListener("click" , stop);
+        document.getElementById('timer-reset').addEventListener("click" , reset);
+
+        function starting() {
+                el.innerHTML = '00:00:01';
+            }
+        function stop() {
+                el.innerHTML = '-00:00:00';
+            }
+        function reset() {
+                el.innerHTML = '00:00:00';
+        }
+
+    };
+
+</script>
+
+</body>
+</html>
