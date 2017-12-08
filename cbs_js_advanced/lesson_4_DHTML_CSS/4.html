@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Move the Block to top/right/bottom/left</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #myBlock {
+            position: relative;
+            top: 200px;
+            left: 200px;
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+        }
+        .btn {
+            width: 120px;
+            margin-bottom: 6px;
+        }
+        .move_block {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px;
+            height: 100px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.1);
+            margin: -50px 0 0 -75px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="move_block">
+        <input type="button" class="btn" value="Move to Top" id="btnMoveTop">
+        <input type="button" class="btn" value="Move to Right" id="btnMoveRight">
+        <input type="button" class="btn" value="Move to Bottom" id="btnMoveBottom">
+        <input type="button" class="btn" value="Move to Left" id="btnMoveLeft">
+    </div>
+
+    <div id="myBlock"></div>
+
+<script>
+// 4 кнопки: вверх, вниз, влево, вправо. + DIV
+// При нажатии на кнопки DIV перемещается в нужном направлении.
+
+"use strict";
+
+    var el = document.getElementById('myBlock'),
+        moveTopInterval,
+        moveRightInterval,
+        moveBottomInterval,
+        moveLeftInterval,
+        moveAreaWidth = window.innerWidth,
+        moveAreaHeight = window.innerHeight,
+        blockWidth = parseInt( getCssValue(el, 'width') ),
+        blockHeight = parseInt( getCssValue(el, 'height') );
+
+    document.getElementById('btnMoveTop').addEventListener("click" , moveTop);
+    document.getElementById('btnMoveRight').addEventListener("click" , moveRight);
+    document.getElementById('btnMoveBottom').addEventListener("click" , moveBottom);
+    document.getElementById('btnMoveLeft').addEventListener("click" , moveLeft);
+
+    function moveTop() {
+        var yPosition = parseInt( getCssValue(el, 'top') );
+        clearInterval(moveBottomInterval);
+        btnDisabled();
+
+        var target = this;
+        target.setAttribute('disabled', 'disabled');
+
+        moveTopInterval = setInterval(function() {
+            if ( yPosition > 0 ) {
+                el.style.top = yPosition + 'px';
+                yPosition--;
+            } else {
+                clearInterval(moveTopInterval);
+                target.removeAttribute('disabled');
+            }
+        }, 5);
+    }
+
+    function moveRight() {
+        var xPosition = parseInt( getCssValue(el, 'left') );
+        clearInterval(moveLeftInterval);
+        btnDisabled();
+
+        var target = this;
+        target.setAttribute('disabled', 'disabled');
+
+        moveRightInterval = setInterval(function() {
+            if ( xPosition < (moveAreaWidth - blockWidth) ) {
+                el.style.left = xPosition + 'px';
+                xPosition++;
+            } else {
+                clearInterval(moveRightInterval);
+                target.removeAttribute('disabled');
+            }
+        }, 5);
+    }
+
+    function moveBottom() {
+        var yPosition = parseInt( getCssValue(el, 'top') );
+        clearInterval(moveTopInterval);
+        btnDisabled();
+
+        var target = this;
+        target.setAttribute('disabled', 'disabled');
+
+        moveBottomInterval = setInterval(function() {
+            if ( yPosition < (moveAreaHeight - blockHeight) ) {
+                el.style.top = yPosition + 'px';
+                yPosition++;
+            } else {
+                clearInterval(moveBottomInterval);
+                target.removeAttribute('disabled');
+            }
+        }, 5);
+    }
+
+    function moveLeft() {
+        var xPosition = parseInt( getCssValue(el, 'left') );
+        clearInterval(moveRightInterval);
+        btnDisabled();
+
+        var target = this;
+        target.setAttribute('disabled', 'disabled');
+
+        moveLeftInterval = setInterval(function() {
+            if ( xPosition > 0 ) {
+                el.style.left = xPosition + 'px';
+                xPosition--;
+            } else {
+                clearInterval(moveLeftInterval);
+                target.removeAttribute('disabled');
+            }
+        }, 5);
+    }
+
+    function getCssValue(el, cssStyleName) {
+        // help function for getting css style
+
+        if (el.currentStyle) { // for IE8-
+            return element.currentStyle[cssStyleName];
+        } else if (window.getComputedStyle) { 
+            return window.getComputedStyle(el, null)[cssStyleName];
+        } else {
+            console.log('Error: can\'t get CSS value.');
+        }
+    }
+
+    function btnDisabled() {
+        var btnList = document.getElementsByClassName('btn');
+        for(var i=0; i < btnList.length; i++) {
+            btnList[i].removeAttribute('disabled');
+        }
+    }
+
+</script>
+
+</body>
+</html>
