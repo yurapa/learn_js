@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array</title>
+</head>
+<body>
+
+
+<script>
+  var user = ["a", "b", "c"];
+  user[5] = "x";
+
+  // Вывод только тех значений которые существуют, кроме пустых (undefined)
+  console.log("Вывод только тех значений которые существуют, кроме пустых (undefined): ");
+  for(var i in user) {
+    console.log(i + ":" + user[i]);
+  }
+
+
+  //Вывод всех значений, в том числе и undefined
+  console.log("\n Вывод всех значений, в том числе и undefined: ");
+  for(var i = 0; i < user.length; i++) {
+    console.log(i + ":" + user[i]);
+  }
+
+</script>
+
+
+</body>
+</html>

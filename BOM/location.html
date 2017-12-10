@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Location</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  var loc = location.href;
+
+  console.log(loc);
+
+  // привели к строке перед indexOf
+  console.log( (window.location + '').indexOf('://') );
+
+  // браузер загрузит страницу http://javascript.ru
+  //window.location = "http://javascript.ru";
+
+  window.location.assign("https://www.w3schools.com");
+  
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<p>напишите функцию, которая принимает массив чисел в качестве аргумента и возвращает их сумму.</p>
+<script>
+
+"use strict";
+var data = [12, 44, 15, 17];
+var sumArray = function( el ) {
+    var i,
+        sumResult = 0;
+    for ( i in el ) {
+        sumResult += el[i];
+    }
+    console.log( sumResult);
+};
+sumArray(data);
+
+</script>
+</body>
+</html>
+
+

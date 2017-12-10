@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navigator</title>
+</head>
+<body OnLoad="display()">
+
+<p id="demo"></p>
+
+<script>
+
+document.getElementById("demo").innerHTML = 
+  "<br> cookieEnabled is = " + navigator.cookieEnabled +
+  "<br> userAgent = " + navigator.userAgent + 
+  "<br> platform = " + navigator.platform + 
+  "<br> appName = " + navigator.appName +
+  "<br> product = " + navigator.product + 
+  "<br> appVersion = " + navigator.appVersion + 
+  "<br> appCodeName = " + navigator.appCodeName +
+
+	"<br> screen.width = " + window.screen.width +
+  "<br> screen.height = " + window.screen.height + 
+  "<br> availWidth = " + window.screen.availWidth + 
+  "<br> availHeight = " + window.screen.availHeight;
+  
+
+</script>
+
+
+</body>
+</html>

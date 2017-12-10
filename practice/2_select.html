@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select</title>
+</head>
+<body>
+    <select id="selectGroup" onchange="selectStatus()">
+        <option value="apple">Apple</option>
+        <option value="orange">Orange</option>
+        <option value="onion">Onion</option>
+        <option value="pineapple">Pineapple</option>
+        <option value="banana">Banana</option>
+    </select>
+
+    <script>
+        function selectStatus() {
+            var allOptions = document.getElementById('selectGroup').options;
+            var selectedOption = document.getElementById('selectGroup').selectedIndex;
+            console.log("Value: " + allOptions[selectedOption].value +
+                        " ; html text: " + allOptions[selectedOption].text);
+        }
+    </script>
+</body>
+</html>

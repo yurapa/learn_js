@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <style>
+        .menu-item {
+            border: 2px solid #666;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        .submenu {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nav">
+        <div class="menu-item">
+            Home
+            <div class="submenu">
+                submenu Home
+            </div>
+        </div>
+        <div class="menu-item">
+            Price
+            <div class="submenu">
+                submenu Price
+            </div>
+        </div>
+        <div class="menu-item">
+            About Us
+            <div class="submenu">
+                submenu About Us
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>

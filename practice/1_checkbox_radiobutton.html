@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Input</title>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="chk" onchange="checkboxStatus()">
+        Clickable checkbox
+    </label>
+    <br>
+    <input type="radio" name="groupRadio" value="3" onchange="radioStatus()"> 3
+    <input type="radio" name="groupRadio" value="6" onchange="radioStatus()"> 6
+    <input type="radio" name="groupRadio" value="14" onchange="radioStatus()"> 14
+    <br>
+    <button onclick="radioStatus()">What radio button is selected?</button>
+
+    <script>
+        function checkboxStatus() {
+            var chk = document.getElementById('chk');
+            if (chk.checked) {
+                console.log('Checked');
+            } else {
+                console.log('Not checked');
+            }
+        }
+        function radioStatus() {
+            var radioButton = document.getElementsByName('groupRadio');
+            for (i = 0; i < radioButton.length; i++) {
+                if (radioButton[i].checked) {
+                    console.log('Selected radio button with value: ' + radioButton[i].value);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

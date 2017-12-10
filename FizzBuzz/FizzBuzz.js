@@ -1,0 +1,21 @@
+/*  Программа, которая выводит числа от 1 до 100.
+    Но вместо тех, что делятся на 3, пусть будет выведено Fizz,
+    а вместо тех, что делятся на 5, — Buzz.
+    Вместо тех же, что делятся и на 3, и на 5, пусть будет выведено FizzBuzz. */
+
+var main = function () {
+    "use strict";
+    var i;
+    for (i = 1; i < 101; i += 1) {
+        if (i % 5 === 0 && i % 3 === 0) {
+            console.log("FizzBuzz");
+        } else if (i % 5 === 0) {
+            console.log("Buzz");
+        } else if (i % 3 === 0) {
+            console.log("Fizz");
+        } else {
+            console.log(i);
+        }
+    }
+};
+main();

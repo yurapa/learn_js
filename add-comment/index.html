@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ToDo List</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main>
+  <h2>Список дел:</h2>
+  <div class="container">
+    <div class="tabs">
+      <a href=""><span class="active">От новых к старым</span></a>
+      <a href=""><span>От старых к новым</span></a>
+      <a href=""><span>Добавить</span></a>
+    </div>
+    <div class="comments"></div>
+  </div>
+
+  <div id="addComment">
+    <input type="text" name="inputComment" id="inputComment">
+    <button>+</button> 
+  </div>
+
+</main>
+
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

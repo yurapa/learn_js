@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Range</title>
+    <style>
+        #rangeBlock {
+            width: 30px;
+            height: 30px;
+            color: #000;
+            text-align: center;
+            line-height: 30px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+    <input type="range" id="rangeInput" min="0" max="100" step="2" oninput="changeRangeValue()">
+    <input type="text" id="rangeInput-text-field" onchange="setRange()">
+    <div id="rangeBlock">
+        <p id="rangeInput-value"></p>
+    </div>
+
+
+    <script>
+        function changeRangeValue() {
+            var r1 = document.getElementById('rangeInput');
+            var paragraph = document.getElementById('rangeInput-value');
+            var text_field = document.getElementById('rangeInput-text-field');
+            var rangeBlock = document.getElementById('rangeBlock');
+            paragraph.innerHTML = r1.value + '%';
+            text_field.value = r1.value;
+            rangeBlock.style.width = r1.value + 'px';
+        }
+        function setRange() {
+            var r1 = document.getElementById('rangeInput');
+            var paragraph = document.getElementById('rangeInput-value');
+            var text_field = document.getElementById('rangeInput-text-field');
+            var rangeBlock = document.getElementById('rangeBlock');
+            r1.value = text_field.value;
+            paragraph.innerHTML = text_field.value + '%';
+            rangeBlock.style.width = text_field.value + 'px';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Open new window</title>
+</head>
+<body>
+  
+  <a href="javascript:openWindow();">open window</a>
+  <br>
+  <a href="javascript:closeWindow();">close window</a>
+  <br>
+  <!-- <a href="javascript:closeOpener();">close opener window</a> -->
+
+  <script>
+  var x;
+  //setTimeout(openWindow(), 1000); // permission error
+
+  function openWindow() {
+    x = window.open("", "w", "width=300,height=300");
+    // x.blur();
+  }
+
+  function closeWindow() {
+    x.close();
+  }
+
+  </script>
+</body>
+</html>

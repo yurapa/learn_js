@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<pre>
+    Напишите функцию, которая возвращает true только в случае, если массив содержит данную строку по крайней мере дважды:
+      arrayContainsTwo(["a","b","a","c"], "a");
+      //=> true
+      arrayContainsTwo(["a","b","a","c"], "b");
+      //=> false
+      arrayContainsTwo(["a","b","a","c","a"], "a");
+      //=> true
+
+      После того как вам удалось это сделать, напишите функцию под названием
+arrayContainsThree, которая работает аналогичным образом, но для трех вместо двух. Словом, мы можем обобщить задачу. Напишите функцию, которая принимает три аргумента и возвращает true, если массив содержит указанный элемент n раз, где n — третий аргумент:
+   arrayContainsNTimes(["a","b","a","c","a"], "a", 3);
+   //=> true
+   arrayContainsNTimes(["a","b","a","c","a"], "a", 2);
+   //=> true
+   arrayContainsNTimes(["a","b","a","c","a"], "a", 4);
+   //=> false
+   arrayContainsNTimes(["a","b","a","c","a"], "b", 2);
+   //=> false
+   arrayContainsNTimes(["a","b","a","c","a"], "b", 1);
+   //=> true
+   arrayContainsNTimes(["a","b","a","c","a"], "d", 0);
+   //=> true
+
+</pre>
+<script>
+"use strict";
+var data1 = ["a","b","1a","c","a"],
+    data2 = "a",
+    nTimes = 2;
+var arrayContainsNTimes = function( elData1, elData2, elNTimes ) {
+    var i,
+        counter = 0,
+        result = false;
+    for ( i in elData1 ) {
+        if (elData1[i] === elData2) {
+            counter += 1;
+        }
+    }
+    result = (counter >= elNTimes) ? true : false;
+    console.log(result);
+    // console.log(counter);
+};
+arrayContainsNTimes(data1, data2, nTimes);
+
+</script>
+</body>
+</html>

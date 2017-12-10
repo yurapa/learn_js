@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p>Напишите функцию, которая принимает два аргумента: массив строк и отдельную строку — и возвращает true, если строка уже содержится в массиве, и false — в противном случае. Например, функция может работать вот так: <br>
+      arrayContains(["привет", "мир"], "привет");<br>
+      //=> true<br>
+      arrayContains(["привет", "мир"], "пока");<br>
+      //=> false<br>
+      arrayContains(["привет", "мир", "пока"], "пока");<br>
+      //=> true</p>
+<script>
+"use strict";
+var data1 = ["привет", "мир"],
+    data2 = "привет";
+var arrayContains = function( elData1, elData2 ) {
+    var i,
+        result = false;
+    for ( i in elData1 ) {
+        if (elData1[i] === elData2) {
+            result = true;
+        }
+    }
+    console.log(result);
+};
+arrayContains(data1, data2);
+
+</script>
+</body>
+</html>

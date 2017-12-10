@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: rgba(242, 242, 242, 0.7);
+}
+main {
+  display: block;
+  width: 85%;
+  border: 1px solid #777;
+  padding: 25px;
+  margin: 25px auto;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.comments {
+  padding: 25px;
+}
+.tabs a span {
+  display: inline-block;
+  text-align: center;
+  background: #ddd;
+  border-radius: 5px 5px 0 0;
+  margin-right: 10px;
+  padding: 5px;
+}
+.tabs a span.active {
+  background: #eee;
+}

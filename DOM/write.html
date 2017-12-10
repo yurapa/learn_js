@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM write</title>
+<script>
+  document.write('<style type="text/css">html,body{background:yellow;}</style>');
+  document.write('<h1>Hello from script</h1>');
+</script>
+
+</head>
+<body>
+  <p>text content</p>
+  <p><a href="javascript:demoWrite();">rewrite document</a></p>
+  
+  <script>
+    alert('some \nstupid \ntext');
+    function demoWrite() {
+      //  перезапишем документ
+      // document.open();
+      document.write("<html>");
+      document.write("HELLO NEW OPEN DOCUMENT");
+      document.write("</html>");
+      // document.close();
+    }
+  </script>
+</body>
+</html>
