@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculate, DOM 0</title>
+    <style>
+        form {
+            width: 220px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 25px;
+        }
+        .btn {
+            width: 50px;
+            height: 50px;
+            font-size: 32px;
+            line-height: 50px;
+        }
+        input[type="text"] {
+            width: 220px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="#">
+        <input type="text" id="arg1">
+        <input type="text" id="arg2">
+        <br><br>
+        <input type="button" class="btn" onclick="calculate_this('plus');" value="+">
+        <input type="button" class="btn" onclick="calculate_this('minus');" value="-">
+        <input type="button" class="btn" onclick="calculate_this('multiply');" value="*">
+        <input type="button" class="btn" onclick="calculate_this('division');" value="/">
+        <br><br>
+        <input type="text" id="result" placeholder=" = ">
+    </form>
+
+<script>
+// Создайте страницу-калькулятор.
+// Разместите на странице два поля ввода и кнопки для арифметических операций
+// над данными введенными в поляввода.
+// Сделать два варианта: DOM level 0 + DOM level 2
+
+    var arg1 = document.getElementById('arg1'),
+        arg2 = document.getElementById('arg2'),
+        result = document.getElementById('result');
+
+    function Calculate() {
+        // Конструктор Класса
+
+        this.plus = function() {
+            result.value = parseInt(arg1.value) + parseInt(arg2.value);
+        };
+        this.minus = function() {
+            result.value = parseInt(arg1.value) - parseInt(arg2.value);
+        }
+        this.multiply = function() {
+            result.value = parseInt(arg1.value) * parseInt(arg2.value);
+        };
+        this.division = function() {
+            result.value = parseInt(arg1.value) / parseInt(arg2.value);
+        }
+    }
+
+    var calculateLite = new Calculate(); // Экземпляр Класса
+
+    function calculate_this(operation) {
+        switch(operation) {
+            case 'plus':
+                calculateLite.plus();
+                break;
+            case 'minus':
+                calculateLite.minus();
+                break;
+            case 'multiply':
+                calculateLite.multiply();
+                break;
+            case 'division':
+                calculateLite.division();
+                break;
+            default:
+                console.log('We can\'t do this opertions.');
+        };
+    }
+
+</script>
+
+</body>
+</html>
