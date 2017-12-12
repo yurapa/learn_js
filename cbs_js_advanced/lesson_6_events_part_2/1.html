@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Saved, don't saved</title>
+</head>
+<body>
+
+    <form action="#" method="GET">
+        <textarea id="area" cols="30" rows="10"></textarea>
+        <input type="button" id="btn-save" value="Save">
+        <input type="submit" value="Send request">
+    </form>
+
+<script>
+// Если пользователь пытается закрыть окно браузера не сохранив данные в поле ввода, -
+// должно запускаться окно, которое потребует подтверждения операции закрытия окна.
+
+    var textEditor = {};
+
+        textEditor.area = document.getElementById('area');
+        textEditor.savedInfo = '';
+        textEditor.savedBtn = document.getElementById('btn-save');
+
+
+    document.addEventListener('submit', checkSavedInfo, false);
+
+    textEditor.area.addEventListener('input', function() {
+        if (textEditor.savedInfo != textEditor.area.value) {
+            textEditor.savedBtn.removeAttribute('disabled');
+        }
+    }, false);
+
+    textEditor.savedBtn.addEventListener('click', function() {
+        textEditor.savedInfo = textEditor.area.value;
+        textEditor.savedBtn.setAttribute("disabled", "disabled");
+    }, false);
+
+
+    function checkSavedInfo(e) {
+        console.log(textEditor.area.value);
+        if (textEditor.savedInfo != textEditor.area.value || textEditor.area.value == '') {
+            alert('Write something and save your changes!');
+            e.preventDefault();
+        }
+
+        console.log('Saved info: ' + textEditor.savedInfo);
+        console.log('in textarea now: ' + textEditor.area.value);
+    }
+
+
+    window.onbeforeunload = function() {
+        if(textEditor.savedInfo != textEditor.area.value || textEditor.area.value == '') {
+            return "Unsaved changes. Realy go away?";
+        }
+    };
+
+</script>
+
+</body>
+</html>

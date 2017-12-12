@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Двигать DIV стрелками</title>
+    <style>
+        #my-block {
+            position: absolute;
+            top: 34px;
+            left: 62px;
+            width: 25px;
+            height: 25px;
+            background-color: tomato;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="my-block"></div>
+
+<script>
+// DIV высотой и ширинойв 25 пикселей.
+// Реализовать обработчики чтобы при нажатии на кнопки со стрелками DIV перемещался
+//в соответствующие стрелками направление на 10 пикселей.
+
+    var goArrowDirection = {};
+
+    goArrowDirection.myblock = document.getElementById('my-block');
+    goArrowDirection.x = parseInt( getCssValue(goArrowDirection.myblock, 'left') );
+    goArrowDirection.y = parseInt( getCssValue(goArrowDirection.myblock, 'top') );
+
+    document.addEventListener('keydown', goThere, false);
+
+    function goThere(event) {
+        var event = event || window.event;
+
+        if (event.keyCode == 37) {
+            goArrowDirection.x -= 10;
+        } else if (event.keyCode == 38) {
+            goArrowDirection.y -= 10;
+        } else if (event.keyCode == 39) {
+            goArrowDirection.x += 10;
+        } else if (event.keyCode == 40) {
+            goArrowDirection.y += 10;
+        }
+
+        goArrowDirection.myblock.style.left = goArrowDirection.x + 'px';
+        goArrowDirection.myblock.style.top = goArrowDirection.y + 'px';
+    }
+
+    function getCssValue(el, cssStyleName) {
+        // help function for getting css style
+
+        if (el.currentStyle) { // for IE8-
+            return element.currentStyle[cssStyleName];
+        } else if (window.getComputedStyle) {
+            return window.getComputedStyle(el, null)[cssStyleName];
+        } else {
+            console.log('Error: can\'t get CSS value.');
+        }
+    }
+
+</script>
+
+</body>
+</html>
