@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Разработайте страницу регистрации нового пользователя</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+        .valid {
+            border: 1px solid green;
+        }
+        .invalid {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 class="text-center">Registrattion</h2>
+
+    <form action="go.html" method="GET" name="js-registration-form">
+
+        <div class="form-group row">
+            <label for="userName" class="col-sm-3 col-form-label">Name:</label>
+            <div class="col-sm-9">
+                <input type="text" name="userName" id="userName" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="userLastName" class="col-sm-3 col-form-label">Last Name:</label>
+            <div class="col-sm-9">
+                <input type="text" name="userLastName" id="userLastName" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="userLogin" class="col-sm-3 col-form-label">Login:</label>
+            <div class="col-sm-9">
+                <input type="text" name="userLogin" id="userLogin" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="userEmail" class="col-sm-3 col-form-label">E-mail:</label>
+            <div class="col-sm-9">
+                <input type="email" name="userEmail" id="userEmail" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="userEmail2" class="col-sm-3 col-form-label">Additional E-mail:</label>
+            <div class="col-sm-9">
+                <input type="email" name="userEmail2" id="userEmail2" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="pwd" class="col-sm-3 col-form-label">Password:</label>
+            <div class="col-sm-9">
+                <input type="password" name="pwd" id="pwd" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="pwdConfirm" class="col-sm-3 col-form-label">Password (confirm):</label>
+            <div class="col-sm-9">
+                <input type="password" name="pwdConfirm" id="pwdConfirm" class="form-control">
+            </div>
+        </div>
+
+        <fieldset class="form-group">
+            <div class="row">
+                <legend class="col-form-legend col-sm-3">Gender:</legend>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="gender" value="1">
+                            Man
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="radio" name="gender" value="0">
+                            Woman
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <input type="submit" class="btn btn-primary" value="Send form">
+
+    </form>
+
+
+<script>
+// Разработайте страницу регистрации нового пользователя.
+// Форма должна получать от пользователя следующие данные:
+//   имя, фамилия, логин, пароль, подтверждение пароля, email, пол (мужчина/женщина).
+// Форма должна проверять:
+//   1) Все поля вводов должны быть заполнены.
+//   2) Пароль и подтверждение пароля должны совпадать.
+//   3) Email должен быть указан в правильном формате.
+// При неудовлетворении этих правил форма должна выводить сообщение об ошибке (не через alert).
+
+
+    var f = document.forms['js-registration-form'];
+
+    f.addEventListener('submit', validateForm, false);
+
+
+    function isErrorEmptyFields(testForm) {
+        var isError = false;
+
+        for (var i = 0; i < testForm.elements.length; ++i) {
+            var el = testForm.elements[i];
+
+            if (el.type == "text" && el.value == '') {
+                el.classList.remove('valid');
+                el.classList.add('invalid');
+                isError = true;
+            } else if (el.type == "text" && el.value != '') {
+                el.classList.remove('invalid');
+                el.classList.add('valid');
+            }
+        }
+
+        return isError;
+    }
+
+    function isErrorEmail(testForm) {
+        var isError = false,
+            pattern = /\b[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}\b/i;
+
+        for (var i = 0; i < testForm.elements.length; ++i) {
+            var el = testForm.elements[i];
+            if (el.type == "email") {
+
+                if (el.value == '' || el.value.search(pattern) == -1) {
+                    el.classList.remove('valid');
+                    el.classList.add('invalid');
+                    isError = true;
+                } else {
+                    el.classList.remove('invalid');
+                    el.classList.add('valid');
+                }
+
+            }
+        }
+
+        return isError;
+    }
+
+
+
+    function validateForm(e) {
+        var isValid = true;
+
+        if ( isErrorEmptyFields(this) || isErrorEmail(this) ) {
+            isValid = false;
+        }
+
+        console.log( 'isEmptyFields: ' + isErrorEmptyFields(this) );
+        console.log( 'checkEmail: ' + isErrorEmail(this) );
+        console.log( 'isValid: ' + isValid );
+
+        isValid = false; // tmp fix
+
+        if (isValid == false) {
+            console.log("Допущены ошибки при заполнении формы.");
+            e.preventDefault();
+        }
+    }
+
+</script>
+
+</body>
+</html>
