@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>localStorage/sessionStorage</title>
+</head>
+<body>
+
+    <h2>HTML web storage; better than cookies.</h2>
+    <p>Unlike cookies, the storage limit is far larger (at least 5MB) and <strong>information is never transferred to the server</strong>.</p>
+
+    <h4>HTML web storage provides two objects for storing data on the client:</h4>
+    <ul>
+        <li>window.localStorage - stores data with no expiration date</li>
+        <li>window.sessionStorage - stores data for one session (data is lost when the browser tab is closed).</li>
+    </ul>
+    <p>Note: Name/value pairs are always stored as strings.</p>
+
+    <h4>Test DIV</h4>
+    <div id="result"></div>
+
+
+    <script>
+
+        // check browser support
+        if (typeof(Storage) !== "undefined") {
+            console.log('localStorage/sessionStorage is working!');
+
+            localStorage.setItem("lastname", "Smith");
+            // localStorage.lastname = "Smith";
+
+            document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+            // document.getElementById("result").innerHTML = localStorage.lastname;
+
+            localStorage.removeItem("lastname"); // Syntax for REMOVING data from localStorage
+        } else {
+            console.log('Sorry! No Web Storage support..');
+        }
+
+    </script>
+</body>
+</html>
