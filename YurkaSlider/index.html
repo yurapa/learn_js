@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yurka's Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="slider-wrapper" id="sliderID">
+        <div class="slider">
+            <div class="slider-item"><img src="img/01.png" alt=""></div>
+            <div class="slider-item"><img src="img/02.png" alt=""></div>
+            <div class="slider-item"><img src="img/03.png" alt=""></div>
+            <div class="slider-item"><img src="img/04.png" alt=""></div>
+            <div class="slider-item"><img src="img/05.png" alt=""></div>
+            <div class="slider-item"><img src="img/06.png" alt=""></div>
+            <div class="slider-item"><img src="img/07.png" alt=""></div>
+            <div class="slider-item"><img src="img/08.png" alt=""></div>
+            <div class="slider-item"><img src="img/09.png" alt=""></div>
+            <div class="slider-item"><img src="img/10.png" alt=""></div>
+            <div class="slider-item"><img src="img/11.png" alt=""></div>
+            <div class="slider-item"><img src="img/12.png" alt=""></div>
+            <div class="slider-item"><img src="img/13.png" alt=""></div>
+            <div class="slider-item"><img src="img/14.png" alt=""></div>
+            <div class="slider-item"><img src="img/15.png" alt=""></div>
+            <div class="slider-item"><img src="img/16.png" alt=""></div>
+        </div>
+        <div class="slider-control" id="slider-control">
+            <a href="#" id="slider-arrow-next">&#8680;</a>
+            <a href="#" id="slider-arrow-prev">&#8678;</a>
+        </div>
+    </div>
+
+    <script src="yurkaSlider.js"></script>
+    <script>
+        yurkaSlider.init({
+            slidesToShow: 4,
+            speed: 3000
+        });
+    </script>
+
+</body>
+</html>
