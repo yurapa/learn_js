@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Run throw the Object</title>
+</head>
+<body>
+
+<script>
+
+    var myChair = {
+        "cushionMaterial": "",
+        "numberOfLegs": "",
+        "legHeight": ""
+    }
+
+    function configureChair() {
+        var userValue;
+        for (var key in myChair) {
+            if ( myChair.hasOwnProperty(key) ) {
+                userValue = prompt('Введите значение свойства ' + key);
+                myChair[key] = userValue;
+            }
+        }
+    }
+
+    function writeChairReceipt () {
+        document.write('<h2>Объект chair будет иметь следующую конфигурацию:</h2>');
+        for (var key in myChair) {
+            if ( myChair.hasOwnProperty(key) ) {
+                document.write(key + ': ' + myChair[key] + '<br>');
+            }
+        }
+    }
+
+    configureChair();
+    writeChairReceipt();
+
+</script>
+
+</body>
+</html>

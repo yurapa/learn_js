@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Window, history - Go Back Button</title>
+</head>
+<body>
+
+<script>
+
+    function takeMeBack() {
+        window.history.go(-1);
+    }
+
+    function getHistoryLength() {
+        var l = window.history.length;
+        return l;
+    }
+
+    var historyLength = getHistoryLength();
+
+    document.write('<p>Welcome! The count of viewed pages is: ' + historyLength +'</p>');
+
+</script>
+
+    <br>
+    <a href="javascript:void(0);" onclick="takeMeBack();">Go back btn</a>
+
+</body>
+</html>
