@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>метод, который выводит сумму чисел</title>
+</head>
+<body>
+    <h3>Задание. Создайте ассоциативный массив свойство mas которое содержит массив чисел (любого количества), добавьте метод, который выводит сумму чисел содержащихся в mas.</h3>
+
+
+<script>
+
+    var arraySumMethod = {
+        "mas" : [5, 6, 34, 12, 45],
+        "sum" : function() {
+            var total = 0;
+            for (var i = 0; i < this.mas.length; i++) {
+                total += this.mas[i];
+            }
+            return total;
+        }
+    }
+    console.log( arraySumMethod.sum() );
+
+</script>
+
+
+</body>
+</html>
