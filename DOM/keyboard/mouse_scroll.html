@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Scroll</title>
+    <style>
+        #test {
+            width: 600px;
+            height: 100px;
+            background: yellowgreen;
+            margin: 50px;
+            position: relative;
+        }
+        #test2 {
+            width: 10px;
+            height: 100px;
+            background-color: blueviolet;
+            position: absolute;
+            left: 290px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<p>Direction: <span id="wheelDirection">0</span></p>
+<p>Speed: <span id="wheelSpeed"></span></p>
+
+<div id="test">
+    <div id="test2"></div>
+</div>
+
+<script>
+    var wheelDirection = document.getElementById('wheelDirection'),
+        wheelSpeed = document.getElementById('wheelSpeed');
+
+    document.onwheel = function (event) {
+        console.log(event);
+        if (event.deltaY > 0) {
+            wheelDirection.innerHTML = "top";
+        } else {
+            wheelDirection.innerHTML = "down";
+        }
+
+        if (Math.abs(event.deltaY) < 100){
+            wheelSpeed.innerHTML = 'slow';
+        } else {
+            wheelSpeed.innerHTML = 'fast';
+        }
+    }
+
+    var left  = 290;
+    document.getElementById('test').onwheel = function(event) {
+        var line = event.deltaY;
+        left = left + line;
+        document.getElementById('test2').style.left = left + 'px';
+        return false;
+    }
+
+
+</script>
+
+</body>
+</html>

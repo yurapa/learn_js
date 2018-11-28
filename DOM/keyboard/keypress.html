@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>onKeyPress</title>
+</head>
+<body>
+
+    <input type="text" id="textInput" />
+
+<script>
+
+    document.getElementById('textInput').onkeypress = function(event) {
+        console.log(event);
+
+        if (event.shiftKey) {
+            // Is the 'Shift' key pressed?  => event.shiftKey: true/false
+            console.log('Shift was pressed.');
+        }
+
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            // But user could copy/paste into the field
+            console.log('Not a digit');
+            return false;
+        }
+    }
+
+</script>
+
+</body>
+</html>
