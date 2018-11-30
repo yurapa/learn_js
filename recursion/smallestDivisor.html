@@ -5,7 +5,7 @@
   <title>Document</title>
 </head>
 <body>
-  
+
 <p>Реализуйте тело функции smallestDivisor, используя итеративный процесс. Эта функция должна находить наименьший делитель заданного числа.
 </p>
 <p>Доп. условия: число, передаваемое в функцию, больше нуля; делитель должен быть больше единицы, за исключением случая, когда аргументом является единица (наименьшим делителем которой является также единица).
@@ -25,20 +25,19 @@ smallestDivisor(17); // 17</p>
 
 
  <script>
-    
-const smallestDivisor = (num) => {
-// BEGIN (write your solution here)
- if (num == 1) return 1;
-  const func = (num, res) => {
-    if (num%res == 0) {
-      return res; 
-    } else {
-      return func(num, res + 1);
-    }
-  }
 
-return func(num, 2);
-// END
+const smallestDivisor = (num) => {
+    if (num == 1) return 1;
+
+    const func = (num, res) => {
+        if (num%res == 0) {
+            return res;
+        } else {
+            return func(num, res + 1);
+        }
+    }
+
+    return func(num, 2);
 };
 
 console.log( smallestDivisor(173) );

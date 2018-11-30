@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Реализуйте и экспортируйте по умолчанию функцию addDigits, которая работает следующим образом:</p>
+    <p>Дано неотрицательное целое число num. Складывать все входящие в него цифры до тех пор, пока не останется одна цифра.</p>
+    <p>Для числа 38 процесс будет выглядеть так:</p>
+    <p>3 + 8 = 11
+        1 + 1 = 2
+        Результат: 2</p>
+    <p>Подсказка <br> Выделите процесс суммирования цифр в числе в отдельную функцию</p>
+
+<script>
+
+//teacher version (1)
+// const sum = (str) => {
+//   let result = 0;
+//   for (let i = 0; i < length(str); i += 1) {
+//     result += Number(str[i]);
+//   }
+
+//   return result;
+// };
+
+// const addDigits = (num) => {
+//   let result = num;
+//   while (result >= 10) {
+//     result = sum(String(result));
+//   }
+
+//   return result;
+// };
+
+// export default addDigits;
+
+
+// My version (2)
+const addDigits = (num) => {
+    let newNum = 0;
+    num += '';
+
+    if (num.length === 1) {
+        return parseInt(num);
+    } else {
+        for (let i = 0; i < num.length; i++) {
+            // console.log(num[i]);
+            // console.log( parseInt(num[i]) );
+
+            newNum += parseInt(num[i]);
+            // console.log( newNum );
+        }
+        return addDigits(newNum);
+    }
+}
+
+// addDigits(0); // 0
+// addDigits(10); // 1
+// addDigits(19); // 1
+addDigits(38); // 2
+// addDigits(1259); // 8
+
+</script>
+
+</body>
+</html>

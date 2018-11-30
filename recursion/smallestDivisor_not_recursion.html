@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<p>Напишите функцию smallestDivisor. Она должна находить наименьший целый делитель числа. Поведение у функции такое же, как в предыдущем уроке, но реализация (код функции) должна быть другой. На этот раз реализуйте императивный итеративный процесс, что означает:</p>
+
+<ul>
+    <li>не используйте рекурсию</li>
+    <li>используйте переменные</li>
+    <li>используйте цикл while</li>
+</ul>
+
+
+Замечание: Если переданное в smallestDivisor число меньше единицы, возвращайте NaN.
+
+Идея алгоритма:
+
+Попробуйте разделить число на 2.
+Если число делится без остатка, то это наименьший делитель.
+Если нет, то попробуйте следующий делитель.
+Если ничего не делит число без остатка, то переданное число является простым, так что его наименьший делитель — оно само (не считая 1)
+Подсказка
+Вспомните про оператор % (modulus or остаток от деления) из урока 4. Он вычисляет остаток от деления одного операнда на другой. Например, 11 % 5 это 1, а 10 % 2 это 0.
+
+Так что если x % y это 0, то y делит x без остатка.
+
+<script>
+
+
+//While
+const smallestDivisor = (n) => {
+    let i = 2;
+    if (n < 1) {
+        return NaN;
+    } else if (n === 1) {
+        return 1;
+    } else {
+        while(i <= n) {
+            if (n % i === 0) {
+                return i;
+            }
+            i ++;
+        }
+    }
+}
+
+
+//For
+const smallestDivisor = (n) => {
+    if (n < 1) {
+        return NaN;
+    } else if (n === 1) {
+        return 1;
+    } else {
+        for(let i = 2; i <= n; i++) {
+            if (n % i === 0) {
+                return i;
+            }
+        }
+    }
+}
+
+
+
+console.log(smallestDivisor(15)); // 3
+console.log(smallestDivisor(17)); //17
+console.log(smallestDivisor(0)); // NaN
+console.log(smallestDivisor(-3)); // NaN
+
+</script>
+
+
+</body>
+</html>

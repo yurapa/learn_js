@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>reverse</title>
+</head>
+<body>
+	
+<p>Реализуйте функцию reverse, которая переворачивает строку. Например:</p>
+
+<code>reverse('hello, world!'); // !dlrow ,olleh</code>
+
+<p>Подсказки</p>
+
+Длина строки str находится так: str.length
+Не забудьте: индексы начинаются с 0, но длина — это реальная длина. Так что индекс последнего символа не совпадает с длиной строки
+
+
+<script>
+	
+
+const reverse = (str) => {
+  let item = str.length - 1,
+      newStr = '';
+  for(item; item >= 0; item --) {
+  	//console.log( str[item], item );
+    newStr += str[item];
+  }
+  return newStr;
+}
+
+console.log( reverse('cat') );
+console.log( reverse('tac') );
+console.log( reverse('') );
+console.log( reverse('aaaa') );  
+
+</script>
+
+</body>
+</html>
