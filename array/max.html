@@ -2,18 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Array: max</title>
 </head>
 <body>
 <p>Напишите функцию, которая принимает в качестве аргумента массив чисел, а затем возвращает наибольшее число в массиве.</p>
 <script>
 
-"use strict";
-var data = [12, 44, 15, 17, 0];
-var getMaxOfArray = function( el ) {
-    console.log(Math.max.apply(null, el));
+const numbers = [12, 44, 15, 17, 0];
+
+
+// Method 1: Using the Math.max function
+const getMaxOfArray = ( el ) => {
+  console.log(Math.max.apply(null, el));
 };
-getMaxOfArray(data);
+getMaxOfArray(numbers);
+
+
+// Method 2: Using the Math.max function with the spread operator
+const maxNumber = Math.max(...numbers);
+console.log(maxNumber);
+
+
+// Method 3: Using the reduce method
+const maxNumberReduce = numbers.reduce((max, current) => (current > max ? current : max), numbers[0]);
+console.log(maxNumberReduce);
+
 
 </script>
 </body>

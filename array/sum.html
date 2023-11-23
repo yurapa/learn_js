@@ -2,14 +2,24 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>Array: Sum</title>
 </head>
 <body>
 <p>напишите функцию, которая принимает массив чисел в качестве аргумента и возвращает их сумму.</p>
 <script>
 
-"use strict";
-var data = [12, 44, 15, 17];
+const numbersArray = [1, 2, 3, 4, 5];
+
+
+// Method 1: Reduce
+function sumArrayReduce(numbers) {
+  return numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+}
+
+console.log( sumArrayReduce(numbersArray) )
+
+
+// Method 2: For ... in
 var sumArray = function( el ) {
     var i,
         sumResult = 0;
@@ -18,7 +28,8 @@ var sumArray = function( el ) {
     }
     console.log( sumResult);
 };
-sumArray(data);
+
+sumArray(numbersArray);
 
 </script>
 </body>
