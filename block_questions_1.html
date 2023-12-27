@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Basics Test</title>
+</head>
+<body>
+
+    <p>
+        1)  What happens, when executing the code when creating a <strong>variable B</strong>?
+        <pre>
+            const A = 'Hello world';
+            const B = A;
+        </pre>
+    </p>
+
+    <ul>
+        <li><strong>+ A. Copying the value of A variable</strong></li>
+        <li>B. Writing the value of variable A to the context of variable B</li>
+        <li>C. Create a reference to the value referenced by variable A</li>
+        <li>D. Writing the value of variable A to the prototype of variable B</li>
+    </ul>
+
+    <p>
+        2) What happens, when executing the code when creating a variable B?
+        <pre>
+            const A = ()=> (...);
+            const B = A;
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. Writing the value of variable A to the context of variable B</li>
+        <li><strong>+ B. Create a reference to the value referenced by variable A</strong></li>
+        <li>C. Writing the value of variable A to the prototype of variable B</li>
+        <li>D. Copying the value of A variable</li>
+    </ul>
+
+    <p>
+        3) What happens, when executing the code when creating a variable B:
+        <pre>
+            const A = [1, 2, 3];
+            const B = A;
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. Writing the value of variable A to the context of variable B</li>
+        <li>B. Copying the value of A variable</li>
+        <li>C. Writing the value of variable A to the prototype of variable B</li>
+        <li><strong>+ D. Create a reference to the value referenced by variable A</strong></li>
+    </ul>
+
+    <p>
+        4) What happens, when executing the code when creating a variable B:
+        <pre>
+            const A = { c: 12, d: 33 };
+            const B = A;
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. Writing the value of variable A to the prototype of variable B</li>
+        <li>B. Copying the value of A variable</li>
+        <li><strong>+ C. Create a reference to the value referenced by variable A</strong></li>
+        <li>D. Writing the value of variable A to the context of variable B</li>
+    </ul>
+
+    <p>5) How to find the largest of two numbers?</p>
+
+    <ul>
+        <li>A. ceil(x, y)</li>
+        <li><strong>+ B. Math.max(x, y)</strong></li>
+        <li>C. top(x, y)</li>
+        <li>D. Math.ceil(x, y)</li>
+    </ul>
+
+    <p>
+        6) To concatenate the elements of an array into a string, it is better to use the function
+    </p>
+
+    <ul>
+        <li>A. concat</li>
+        <li>B. flat</li>
+        <li>C. merge</li>
+        <li><strong>+ D. join</strong></li>
+    </ul>
+
+    <p>
+        7) How to access the context of a function call
+    </p>
+
+    <ul>
+        <li>A. prototype</li>
+        <li>B. constructor</li>
+        <li>C. window</li>
+        <li>D. super</li>
+        <li>E. apply</li>
+        <li>F. class</li>
+        <li><strong>+ G. this</strong></li>
+    </ul>
+
+    <p>
+        8) What is the difference between prototype and _ proto_?
+    </p>
+
+    <ul>
+        <li><strong>+ A. the first option is a constructor property and the second instance property</strong></li>
+        <li>B. just writing</li>
+        <li>C. the second option is available when super is called when the first one is present in the parent object's constructor</li>
+        <li>D. different versions of Javascript._ proto_ is deprecated</li>
+    </ul>
+
+    <p>
+        9) "this" always refers to
+    </p>
+
+    <ul>
+        <li>A. the function itself</li>
+        <li>B. window</li>
+        <li>C. prototype</li>
+        <li>D. _proto_</li>
+        <li>E. undefined</li>
+        <li>F. parent object</li>
+        <li>G. class instance from where the function is called</li>
+        <li><strong>+ H. none of the options above</strong></li>
+    </ul>
+
+    <p><i>Comment: The value of the this keyword in JavaScript depends on the context in which it is used.
+        It does not always refer to the same thing, and its value can vary.</i></p>
+
+    <p>
+        10) To call the desired function with the required context, you need to use the function:
+    </p>
+
+    <ul>
+        <li><strong>+ A. apply</strong></li>
+        <li><strong>+ B. bind</strong></li>
+        <li><strong>+ C. call</strong></li>
+        <li>D. none of them</li>
+    </ul>
+
+    <p><i>
+        Comment: <br>
+        apply: The apply function allows you to call a function with a given this value and an array or array-like object of arguments.<br>
+        bind: The bind function returns a new function with the specified this value and optionally, partially applied arguments. It doesn't call the function immediately but returns a new function that you can call later.<br>
+        call: The call function allows you to call a function with a specified this value and a list of arguments passed individually.
+    </i></p>
+
+    <p>
+        11) To stick a context to a specific function, you need to use the function
+    </p>
+
+    <ul>
+        <li>A. apply</li>
+        <li><strong>+ B. bind</strong></li>
+        <li>C. call</li>
+        <li>D. none of them</li>
+    </ul>
+
+
+    <p>
+        12) We have the numeric array. We need to create <strong>a new array</strong> where each of its elements would be equal to twice the element of the original array. Which iterating method is best?
+    </p>
+
+    <ul>
+        <li>+ A. map</li>
+        <li>B. for..in</li>
+        <li>C. foreach</li>
+        <li>D. reduce</li>
+        <li>E. for..of</li>
+    </ul>
+
+    <p>
+        <pre>
+            const originalArray = [1, 2, 3, 4, 5];
+            const doubledArray = originalArray.map((element) => element * 2);
+            console.log(doubledArray); // This will give you [2, 4, 6, 8, 10]
+        </pre>
+    </p>
+
+    <p>
+        13) We have the numeric array. We need to calculate the sum of its elements. Which iterating method is best?
+    </p>
+
+    <ul>
+        <li>A. foreach</li>
+        <li>B. map</li>
+        <li>C. for..in</li>
+        <li>D. for..of</li>
+        <li><strong>+ E. reduce</strong></li>
+    </ul>
+
+    <p>
+        <pre>
+            const numericArray = [1, 2, 3, 4, 5];
+            const sum = numericArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+            console.log(sum); // This will give you 15, which is the sum of the elements in the array.
+        </pre>
+    </p>
+
+    <p>
+        14) We have numeric array. We need to get an array consisting of only even numbers of the given array. Which iterating method is best?
+    </p>
+
+    <ul>
+        <li>A. map</li>
+        <li>B. for..in</li>
+        <li>C. foreach</li>
+        <li>D. reduce</li>
+        <li><strong>+ E. filter</strong></li>
+    </ul>
+
+    <p>
+        <pre>
+            const numericArray = [1, 2, 3, 4, 5, 6, 7, 8];
+            const evenNumbers = numericArray.filter((element) => element % 2 === 0);
+            console.log(evenNumbers); // This will give you [2, 4, 6, 8], which are the even numbers from the original array.
+        </pre>
+    </p>
+
+    <p>
+        15) Let's imagine that we have an array. When iterating over the keys in the for..in loop, we won't see the length property. Why?
+    </p>
+
+    <ul>
+        <li><strong>+ A. This is not own array property (hasOwnProperty) and is therefore not displayed</strong></li>
+        <li>B. for..in iteration is for objects and cannot iterate over arrays</li>
+        <li>C. The descriptor settings do not allow enumeration of this key</li>
+        <li>D. Because the length property belongs to Array, and after the array is instantiated, its type is "object"</li>
+    </ul>
+
+    <p>
+        16) What is the value?
+        <pre>
+            typeof(undefined)
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. undefined</li>
+        <li><strong>+ B. "undefined"</strong></li>
+        <li>C. Object</li>
+        <li>D. "object"</li>
+    </ul>
+
+    <p>
+        17) What is the result value?
+        <pre>
+            let empty_object = {}, result = false;
+
+            if( typeof( empty_object) === "object" ) {
+                result = true;
+            ｝
+        </pre>
+    </p>
+
+    <ul>
+        <li><strong>+ A. true</strong></li>
+        <li>B. false</li>
+        <li>C. undefined</li>
+        <li>D. NaN</li>
+    </ul>
+
+    <p>
+        18)  const result = null || "someValue";
+        <br>
+        What is the result value?
+    </p>
+
+    <ul>
+        <li>A. true</li>
+        <li>B. false</li>
+        <li>C. null</li>
+        <li>+ D. "someValue"</li>
+    </ul>
+
+    <p>
+        19) What is the result value?
+        <pre>
+            const invokee = function( message ){
+                return this + " " + message;
+            }
+            const result = invokee.call("a", "z");
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. z a</li>
+        <li><strong>+ B. a z</strong></li>
+        <li>C. [Object]</li>
+        <li>D. invokee az</li>
+        <li>E. undefined a</li>
+        <li>F. There will be a code execution error</li>
+    </ul>
+
+    <p>
+        Comment: .call() 1st argument = this, 2nd = property "message"
+    </p>
+
+    <p>
+        20) What is the result value?
+        <pre>
+            const invokee = function( message1, message2 ){
+                return this + message1 + message2;
+            };
+            const result = invokee.apply("am", ["a","z"]);
+        </pre>
+    </p>
+
+    <ul>
+        <li><strong>+ A. amaz</strong></li>
+        <li>B. azam</li>
+        <li>c. [Object]</li>
+        <li>D. invokeeam</li>
+        <li>E. invokeeaz</li>
+        <li>F. There will be a code execution error</li>
+    </ul>
+
+    <p>
+        21) What will we see in the console?
+        <pre>
+            const arr = [];
+            arr[0] = 1;
+            arr[1] = 2;
+            arr.foo = 3;
+            console.log (arr.length);
+        </pre>
+    </p>
+
+    <ul>
+        <li><strong>+ A. 2</strong></li>
+        <li>в. 3</li>
+        <li>C. Code execution error</li>
+        <li>D. undefined (array has become an object)</li>
+    </ul>
+
+    <p>
+        Comment:  You also add a property foo to the array. However, the length property of an array in JavaScript
+        is based on the highest numeric index used, and it does not count properties with non-numeric keys.
+    </p>
+
+    <p>
+        22) What is the result value?
+        <pre>
+            const result = [1, 2, 3, 4].map(function(x, y) {return x + y} );
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. 10</li>
+        <li>B. [1, 3, 6, 10]</li>
+        <li><strong>+ C. [1, 3, 5, 7]</strong></li>
+        <li>D. [3, 5, 7, 10]</li>
+    </ul>
+
+    <p>
+        23) What is the result value ?
+        <pre>
+            const person = {
+                name: 'Bob',
+                intro: function() {
+                    return "Hello, my name is " + this.name;
+                }
+            }
+            const name = Peter;
+            const message = person.intro.call( {name: "Frank"} );
+        </pre>
+    </p>
+
+    <ul>
+        <li><strong>+ A. Hello, my name is Frank</strong></li>
+        <li>B. Code execution error</li>
+        <li>C. Hello, my name is Bob</li>
+        <li>D. Hello, my name is Piter</li>
+    </ul>
+
+    <p>
+        24) What will be displayed in the console?
+        <pre>
+            const a = function(){ console.log(this) };
+            const b = [1, 2, a];
+            b[2]();
+        </pre>
+    </p>
+
+    <ul>
+        <li>A. window</li>
+        <li>B. undefined</li>
+        <li>C. function</li>
+        <li><strong>D. [1,2,f]</strong></li>
+        <li>E. Code execution error</li>
+    </ul>
+</body>
+</html>
